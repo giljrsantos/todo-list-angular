@@ -39,7 +39,6 @@ export class TodoFormComponent {
 
   public hanleCreateNewTodo(): void {
     if (this.todosForm.value && this.todosForm.valid) {
-      //const {title, description} = this.todosForm.controls
       const title = String(this.todosForm.controls['title'].value);
       const description = String(this.todosForm.controls['description'].value);
 
