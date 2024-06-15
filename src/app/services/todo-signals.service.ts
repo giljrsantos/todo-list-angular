@@ -4,17 +4,26 @@ import { Todo } from '@app/models/model/todo.model';
 import { TodoKeyLocalStorage } from '@app/models/enum/todoKeyLocalStorage';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TodoSignalsService {
-
   public todosState = signal<Array<Todo>>([]);
 
-  public updateTodos({ id, title, description, done }: Todo): void {
-    if ((title && id && description !== null) || undefined) {
+  public updateTodos({
+    id,
+    title,
+    description,
+    done,
+  }: Todo): void {
+    if (
+      (title && id && description !== null) ||
+      undefined
+    ) {
       this.todosState.mutate((todos) => {
         if (todos !== null) {
-          todos.push(new Todo(id, title, description, done))
+          todos.push(
+            new Todo(id, title, description, done),
+          );
         }
       });
       this.saveTodosInLocalStorage();
@@ -22,8 +31,12 @@ export class TodoSignalsService {
   }
 
   public saveTodosInLocalStorage(): void {
-    const todos = JSON.stringify(this.todosState())
+    const todos = JSON.stringify(this.todosState());
 
-    todos && localStorage.setItem(TodoKeyLocalStorage.TODO_LIST, todos)
+    todos &&
+      localStorage.setItem(
+        TodoKeyLocalStorage.TODO_LIST,
+        todos,
+      );
   }
 }

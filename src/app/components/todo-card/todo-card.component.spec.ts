@@ -3,17 +3,17 @@ import {
   TestBed,
 } from '@angular/core/testing';
 
-import { HeaderComponent } from './header.component';
+import { TodoCardComponent } from './todo-card.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('TodoCardComponent', () => {
+  let component: TodoCardComponent;
+  let fixture: ComponentFixture<TodoCardComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HeaderComponent],
+      imports: [TodoCardComponent],
     });
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(TodoCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
